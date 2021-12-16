@@ -1,9 +1,9 @@
 package org.algosketch.androidtemplate.feature.home
 
-import androidx.lifecycle.ViewModel
+import org.algosketch.androidtemplate.global.base.BaseViewModel
 import org.algosketch.androidtemplate.global.util.SingleLiveEvent
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel : BaseViewModel() {
     val startNextFragment = SingleLiveEvent<Any>()
 
     fun startNextWithLocalData() {

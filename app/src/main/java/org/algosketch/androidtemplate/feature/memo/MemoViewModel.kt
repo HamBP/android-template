@@ -4,12 +4,14 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import org.algosketch.androidtemplate.data.repository.LocalRepository
+import org.algosketch.androidtemplate.global.base.BaseViewModel
 import org.algosketch.androidtemplate.global.usecase.GetMemoUseCase
 import org.algosketch.androidtemplate.global.usecase.WriteMemoUseCase
+import org.koin.core.component.inject
 
-class MemoViewModel : ViewModel() {
-    val getMemoUseCase = GetMemoUseCase(LocalRepository())
-    val writeMemoUseCase = WriteMemoUseCase(LocalRepository())
+class MemoViewModel : BaseViewModel() {
+    val getMemoUseCase: GetMemoUseCase by inject()
+    val writeMemoUseCase: WriteMemoUseCase by inject()
 
     private val _storedMemo = MutableLiveData<String>()
     val storedMemo = _storedMemo

@@ -4,6 +4,7 @@ plugins {
 }
 
 apply plugin: 'kotlin-kapt'
+apply plugin: 'koin'
 
 android {
     compileSdkVersion 31
@@ -71,4 +72,7 @@ dependencies {
 
     // Jetpack Compose Integration
     implementation("androidx.navigation:navigation-compose:2.4.0-beta02")
+
+    // koin
+    implementation "io.insert-koin:koin-android:$koin_version"
 }
