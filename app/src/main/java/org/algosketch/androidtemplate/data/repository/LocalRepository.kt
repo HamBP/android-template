@@ -6,13 +6,13 @@ import org.algosketch.androidtemplate.global.constant.LocalStorageKeys
 import org.algosketch.androidtemplate.global.util.MyApplication
 
 class LocalRepository : Repository {
-    override fun getMemo(): Memo {
+    override suspend fun getMemo(): Memo {
         val context = MyApplication.applicationContext()
         val sharedPref = context.getSharedPreferences(LocalStorageKeys.default, Context.MODE_PRIVATE)
         return Memo(sharedPref.getString("memo", "null"))
     }
 
-    override fun writeMemo(content: String) {
+    override suspend fun writeMemo(content: String) {
         val context = MyApplication.applicationContext()
         val sharedPref = context.getSharedPreferences(LocalStorageKeys.default, Context.MODE_PRIVATE)
         with(sharedPref.edit()) {

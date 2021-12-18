@@ -3,7 +3,11 @@ package org.algosketch.androidtemplate.feature.memo
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.algosketch.androidtemplate.data.repository.LocalRepository
+import org.algosketch.androidtemplate.feature.main.MainViewModel
 import org.algosketch.androidtemplate.global.base.BaseViewModel
 import org.algosketch.androidtemplate.global.usecase.GetMemoUseCase
 import org.algosketch.androidtemplate.global.usecase.WriteMemoUseCase
@@ -18,11 +22,15 @@ class MemoViewModel : BaseViewModel() {
     var inputMemo = MutableLiveData<String?>()
 
     fun getMemo() {
-        val memo = getMemoUseCase.run().content
-        storedMemo.postValue(memo)
+        CoroutineScope(Dispatchers.Main).launch {
+            val memo = getMemoUseCase.run().content
+            storedMemo.postValue(memo)
+        }
     }
 
     fun writeMemo() {
-        writeMemoUseCase.run(inputMemo.value.toString())
+        CoroutineScope(Dispatchers.Main).launch {
+            writeMemoUseCase.run(inputMemo.value.toString())
+        }
     }
 }

@@ -1,7 +1,5 @@
 package org.algosketch.androidtemplate.feature.main
 
-import android.content.Intent
-import android.os.Bundle
 import androidx.activity.viewModels
 import org.algosketch.androidtemplate.R
 import org.algosketch.androidtemplate.databinding.ActivityMainBinding
