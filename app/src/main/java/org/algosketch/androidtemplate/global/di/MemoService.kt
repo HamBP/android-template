@@ -10,10 +10,10 @@ import retrofit2.http.Url
 
 interface MemoService {
     @GET(".")
-    suspend fun getMemo(): Memo
+    suspend fun getMemo(): Response<Memo>
 
     @POST(".")
-    fun writeMemo(
+    suspend fun writeMemo(
         @Body requestBody: Memo
     ): Response<Unit>
 }
