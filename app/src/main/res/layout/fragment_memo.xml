@@ -20,9 +20,10 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="40dp"
-            android:text="이전에 저장한 내용"
-            android:textSize="40sp"/>
+            android:layout_marginTop="200dp"
+            android:text="지난 번에 저장했던 내용이에요."
+            android:textColor="@color/black_3"
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/stored_content_value"
@@ -31,9 +32,11 @@
             app:layout_constraintTop_toBottomOf="@id/stored_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
             android:text="@{viewModel.storedMemo}"
-            android:textSize="32sp"
-            tools:text="저장했던 내용"/>
+            android:textSize="18sp"
+            android:textColor="@color/primary"
+            tools:text="새해 계획을 세우자!"/>
 
         <TextView
             android:id="@+id/new_content"
@@ -43,8 +46,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="40dp"
-            android:text="새로 저장할 내용"
-            android:textSize="40sp"/>
+            android:text="이번엔 어떤 내용을 저장할까요?"
+            android:textColor="@color/black_3"
+            android:textSize="16sp"/>
 
         <EditText
             android:id="@+id/new_content_input"
@@ -53,19 +57,20 @@
             app:layout_constraintTop_toBottomOf="@id/new_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
             android:hint="내용을 입력하세요"
-            android:textSize="32sp"/>
+            android:textSize="18sp"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            app:layout_constraintTop_toBottomOf="@id/new_content_input"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="40dp"
-            android:layout_marginHorizontal="24dp"
+            android:background="@color/primary"
             android:text="저장"
-            android:textSize="32sp"
+            android:textSize="24sp"
+            android:textColor="@color/white"
             android:onClick="@{()->viewModel.writeMemo()}"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
