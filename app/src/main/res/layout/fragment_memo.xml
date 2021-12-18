@@ -21,7 +21,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="200dp"
-            android:text="지난 번에 저장했던 내용이에요."
+            android:text="@string/memo_last"
             android:textColor="@color/black_3"
             android:textSize="16sp"/>
 
@@ -46,7 +46,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="40dp"
-            android:text="이번엔 어떤 내용을 저장할까요?"
+            android:text="@string/to_save_content"
             android:textColor="@color/black_3"
             android:textSize="16sp"/>
 
