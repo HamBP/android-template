@@ -12,20 +12,13 @@ class RemoteRepository : Repository, KoinComponent {
 
     override suspend fun getMemo(): Memo {
         val result = service.getMemo()
-        Log.d("요청", "status : ${result.code()}, ${result.body()}")
 
-        if(result.isSuccessful) {
-            return result.body()!!
-        }
-        else {
-            throw Exception("UNKNOWN ERROR")
-        }
+        return if(result.isSuccessful) result.body()!! else throw Exception("UNKNOWN ERROR")
     }
 
     override suspend fun writeMemo(content: String) {
         val requestBody = Memo(content)
         val result = service.writeMemo(requestBody)
-        Log.d("요청", "status : ${result.code()}")
 
         if(!result.isSuccessful) {
             throw Exception("UNKNOWN ERROR")
